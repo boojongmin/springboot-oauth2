@@ -1,0 +1,40 @@
+POST http://my_client_id:my_client_secret@localhost:8080/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=user&password=test
+
+###
+POST http://my_client_id:my_client_secret@localhost:8080/oauth/token
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&scope=member.info.public
+
+<> 2018-05-31T100544.200.json
+<> 2018-05-31T100343.200.json
+<> 2018-05-31T100319.400.json
+#{
+#  "access_token": "<토큰>",
+#  "token_type": "bearer",
+#  "expires_in": 34391,
+#  "scope": "member.info.public"
+#}
+###
+
+
+GET http://localhost:8081/members
+Authorization: Bearer 31a9c075-3873-4acc-b92e-2b2eba6250ea
+Content-Type: application/x-www-form-urlencoded
+
+<> 2018-05-31T100558.401.json
+<> 2018-05-31T100533.401.json
+<> 2018-05-31T100529.401.json
+<> 2018-05-31T100524.401.json
+
+
+###
+GET http://localhost:8081/userinfo
+Authorization: Bearer 0ced62db-3489-4455-8f2a-ccc391245c49
+
+###

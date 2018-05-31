@@ -1,0 +1,32 @@
+server.port: 8081
+
+spring.h2.console:
+  enabled: true
+  path: /h2-console
+
+# 외부 DB 설정시 아래의 주석을 활성화 시킨 후 관련 DB 설정 정보를 입력한다.
+#spring:
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/~/api;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#    driverClassName: org.h2.Driver
+#    username: sa
+#    password:
+
+security:
+  oauth2:
+    client:
+      client-id: my_client_id
+      client-secret: my_client_secret
+    resource:
+      token-info-uri: http://localhost:8080/oauth/check_token
+security.oauth2.authorization.check-token-access: isAuthenticated()
+
+#      jwt:
+#        # JWT 검증 키를 직접 문자열로 지정
+#        key-value: jwt_key_test
+#        # jwt.key-uri: http://localhost:8080/oauth/token_key
+
+logging.level:
+  org.springframework:
+    security: debug
+    boot: debug
